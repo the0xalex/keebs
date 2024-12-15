@@ -49,7 +49,6 @@ cd qmk_firmware
 # Add this as a sub
 git submodule add git@github.com:the0xalex/keebs keyboards/keebs
 git commit -m "Add Alex's keebs as submodule"
-git submodule update --init --recursive
 
 # Setup the build environment 
 qmk setup -H ~/Developer/qmk_firmware
