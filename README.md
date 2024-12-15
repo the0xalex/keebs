@@ -46,6 +46,9 @@ brew install --cask --no-quarantine qmk-toolbox
 git clone --recurse-submodules git@github.com:the0xalex/qmk-fork.git qmk_firmware
 cd qmk_firmware
 
+# ensure you don't push to the other submodules
+git config push.recurseSubmodules no
+
 # Add this as a sub
 git submodule add git@github.com:the0xalex/keebs keyboards/keebs
 git commit -m "Add Alex's keebs as submodule"
