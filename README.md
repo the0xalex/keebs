@@ -15,18 +15,20 @@ I plan on hacking on firmware for some friends/coworkers as well, so this is the
 structure:
 
 ```txt
-the0xalex/           # User namespace
-└── 75/              # Keyboard name
-    ├── 75.c         # Keyboard-specific code
-    ├── config.h     # Hardware configuration
-    ├── halconf.h    # HAL configuration for the MCU
-    ├── info.json    # Main keyboard definition file
-    ├── mcuconf.h    # MCU-specific configuration
-    ├── readme.md    # Keyboard specific docs
-    └── keymaps/     # Keymap directory
-        └── default/   # Keymap namespace
-            ├── keymap.c    # Keymap definition
-            └── rules.mk    # Keymap-specific build rules
+keyboards/  # qmk_firmware's keyboards directory
+└── keebs/  # submodule (this repo root)
+    └── the0xalex/           # User namespace
+        └── 75/              # Keyboard name
+            ├── 75.c         # Keyboard-specific code
+            ├── config.h     # Hardware configuration
+            ├── halconf.h    # HAL configuration for the MCU
+            ├── info.json    # Main keyboard definition file
+            ├── mcuconf.h    # MCU-specific configuration
+            ├── readme.md    # Keyboard specific docs
+            └── keymaps/     # Keymap directory
+                └── default/   # Keymap namespace
+                    ├── keymap.c    # Keymap definition
+                    └── rules.mk    # Keymap-specific build rules
 ```
 
 
@@ -45,13 +47,13 @@ git clone --recurse-submodules git@github.com:the0xalex/qmk-fork.git qmk_firmwar
 cd qmk_firmware
 
 # Add this as a sub
-git submodule add git@github.com:the0xalex/keebs keyboards
+git submodule add git@github.com:the0xalex/keebs keyboards/keebs
 git commit -m "Add Alex's keebs as submodule"
 git submodule update --init --recursive
 
 # Setup the build environment 
 qmk setup -H ~/Developer/qmk_firmware
-qmk config user.keyboard=the0xalex/75
+qmk config user.keyboard=keebs/the0xalex/75
 qmk config user.keymap=default
 qmk doctor # verify deps and such are correct
 qmk compile
@@ -61,14 +63,14 @@ qmk compile
 
 
 ```bash
-cd keyboards  # Enter submodule dir
+cd keyboards/keebs  # Enter submodule dir
 # -> Make whatever changes
 git add .
 git commit -m "Updated stuffs"
 git push origin main  # Push to keebs repo
 
 cd ..  # Back to main repo
-git add keyboards  # Update submodule reference
+git add keyboards/keebs  # Update submodule reference
 git commit -m "Update keyboards submodule"
 git push
 ```
