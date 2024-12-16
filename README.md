@@ -1,4 +1,6 @@
-# Keyboard Firmware
+<p align="center"><img src="./readme-header.svg" width="500"></p>
+
+<h1 align="center">Keyboard Firmware</h1>
 
 I keep a personal [QMK](https://github.com/qmk/qmk_firmware) fork that I hack on for customizing mechanical keyboard firmware.
 
@@ -25,7 +27,7 @@ keyboards/                    # qmk_firmware's keyboards directory
             ├── info.json     # Optional definition file
             ├── keyboard.json # Main keyboard definition file
             ├── mcuconf.h     # MCU-specific configuration
-            ├── readme.md     # Keyboard specific docs
+            ├── README.md     # Keyboard specific docs
             └── keymaps/      # Keymap directory
                 └── default/      # Keymap namespace
                     └── keymap.c      # Keymap definition
