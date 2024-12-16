@@ -1,0 +1,52 @@
+{
+    "keyboard_name": "alex_75",
+    "manufacturer": "the0xalex",
+    "url": "https://github.com/the0xalex",
+    "maintainer": "the0xalex",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0xBEEF",
+        "device_version": "0.0.1"
+    },
+    "processor": "WB32FQ95",
+    "bootloader": "wb32-dfu",
+    "matrix_pins": {
+        "cols": ["A0", "A1", "A2", "A3", "A4", "C1", "C2", "C3"],
+        "rows": ["B0", "B1", "B2", "B3", "B4", "B5", "C14", "C15", "B8", "B9", "B10", "C8", "C9", "A15"]
+    },
+    "diode_direction": "COL2ROW",
+    "bootmagic": {
+        "matrix": [1, 3]
+    },
+    "eeprom": {
+        "driver": "wear_leveling",
+        "wear_leveling": {
+            "driver": "spi_flash",
+            "backing_size": 4096
+        }
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "A9", "pin_b": "A8"}
+        ]
+    },
+    "features": {
+        "bootmagic": true,
+        "mousekey": true,
+        "extrakey": true,
+        "console": false,
+        "command": false,
+        "rgb_matrix": true,
+        "encoder": true,
+        "encoder_map": true,
+        "via": false,
+        "nkro": false,
+        "dip_switch": false,
+        "debug": false,
+        "debug_matrix": false
+    },
+    "rgb_matrix": {
+        "driver": "aw20216s",
+        "sleep": true
+    }
+}

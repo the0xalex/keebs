@@ -15,20 +15,20 @@ I plan on hacking on firmware for some friends/coworkers as well, so this is the
 structure:
 
 ```txt
-keyboards/  # qmk_firmware's keyboards directory
-└── keebs/  # submodule (this repo root)
-    └── the0xalex/           # User namespace
-        └── 75/              # Keyboard name
-            ├── 75.c         # Keyboard-specific code
-            ├── config.h     # Hardware configuration
-            ├── halconf.h    # HAL configuration for the MCU
-            ├── info.json    # Main keyboard definition file
-            ├── mcuconf.h    # MCU-specific configuration
-            ├── readme.md    # Keyboard specific docs
-            └── keymaps/     # Keymap directory
-                └── default/   # Keymap namespace
-                    ├── keymap.c    # Keymap definition
-                    └── rules.mk    # Keymap-specific build rules
+keyboards/                    # qmk_firmware's keyboards directory
+└── keebs/                    # submodule (this repo root)
+    └── the0xalex/            # User namespace
+        └── 75/               # Keyboard name
+            ├── 75.c          # Keyboard-specific code
+            ├── config.h      # Hardware configuration
+            ├── halconf.h     # HAL configuration for the MCU
+            ├── info.json     # Optional definition file
+            ├── keyboard.json # Main keyboard definition file
+            ├── mcuconf.h     # MCU-specific configuration
+            ├── readme.md     # Keyboard specific docs
+            └── keymaps/      # Keymap directory
+                └── default/      # Keymap namespace
+                    └── keymap.c      # Keymap definition
 ```
 
 
@@ -58,6 +58,7 @@ qmk setup -H ~/Developer/qmk_firmware
 qmk config user.keyboard=keebs/the0xalex/75
 qmk config user.keymap=default
 qmk doctor # verify deps and such are correct
+qmk list-keyboards | grep "the0xalex"
 qmk compile
 ```
 
@@ -71,7 +72,7 @@ git add .
 git commit -m "Updated stuffs"
 git push origin main  # Push to keebs repo
 
-cd ..  # Back to main repo
+cd ../../  # Back to main repo
 git add keyboards/keebs  # Update submodule reference
 git commit -m "Update keyboards submodule"
 git push
